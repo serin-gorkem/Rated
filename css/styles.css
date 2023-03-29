@@ -276,24 +276,6 @@ main .movie .overview {
   -o-transition: 0.4s all ease-in-out;
   transition: 0.4s all ease-in-out;
 }
-main .movie .overview .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-main .movie .overview .container .toggle-overview {
-  color: black;
-}
 main .movie .show {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
