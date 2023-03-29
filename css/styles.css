@@ -246,6 +246,7 @@ main .movie:hover .overview {
   background-color: var(--secondary-color);
   border-radius: 50%;
   bottom: 2%;
+  text-decoration: none;
   left: 1%;
   display: flex;
   align-items: center;
