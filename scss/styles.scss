@@ -214,9 +214,9 @@ main {
     background-color: var(--secondary-color);
     border-radius: 50%;
     bottom: 2%;
+    text-decoration: none;
     @include screen-type(pc){
     bottom: 5%;
-
     }
     left: 1%;
     @include flex-assign(column, center, center);
