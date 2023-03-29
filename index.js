@@ -42,7 +42,6 @@ function showMovies(movies) {
       <div class="overview">
       <div class="container">
       <h3>Overview</h3>
-      <button class="close-overview toggle-overview"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
         <p>
         ${overview}
