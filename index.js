@@ -75,16 +75,19 @@ form.addEventListener("submit", (e) => {
 setTimeout(() => {
   const openToggles = document.querySelectorAll(".open-overview");
   const closeToggles = document.querySelectorAll(".close-overview");
-  Toggles(openToggles);
-  Toggles(closeToggles);
-}, 50);
-function Toggles(array) {
   const overviews = document.querySelectorAll(".overview");
-  array.forEach((toggle) => {
+  openToggles.forEach((toggle) => {
     toggle.addEventListener("click", function () {
-      var current = Array.prototype.indexOf.call(array, toggle);
-
-      overviews[current].classList.toggle("show");
+      var current = Array.prototype.indexOf.call(openToggles, toggle);
+      overviews[current].classList.add("show");
     });
   });
-}
+  closeToggles.forEach((toggle) => {
+    toggle.addEventListener("click", function () {
+      var current = Array.prototype.indexOf.call(closeToggles, toggle);
+      overviews[current].classList.remove("show");
+    });
+  });
+}, 50);
+
+
