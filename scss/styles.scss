@@ -1,0 +1,234 @@
+@import "_mixin.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+:root {
+    --primary-color: #15113d;
+    --secondary-color: #35114a;
+    --text-color: #fff;
+}
+html {
+    scroll-behavior: smooth;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    @include grid-assign(100%, 10% 90%);
+    @include screen-type(phone-landscape) {
+        @include grid-assign(100%, 20% 80%);
+    }
+    @supports (height: 100svh) {
+        height: 100svh;
+    }
+    background-color: var(--primary-color);
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+p,
+h1,
+h2,
+h4,
+h5 {
+    margin: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem;
+
+    .logo {
+        @include screen-type(pc) {
+            min-width: 20%;
+            width: 20%;
+        }
+        @include screen-type(phone-landscape) {
+            min-width: 20%;
+            width: 20%;
+        }
+        a {
+            padding: 5rem;
+        }
+        cursor: pointer;
+        max-width: 50%;
+        height: 80%;
+        min-width: 40%;
+        background-image: url(/Images/Logo.png);
+        background-position: center;
+        background-size: cover;
+    }
+    .search-container {
+        @include flex-assign(row, center, center);
+        width: 50%;
+        @include screen-type(pc) {
+            width: 20%;
+        }
+        @include screen-type(phone-landscape) {
+            width: 20%;
+        }
+        position: relative;
+    }
+    .icon {
+        cursor: pointer;
+        color: var(--text-color);
+        border-radius: 30px;
+        @include screen-type(pc) {
+            padding: 5%;
+        }
+        @include screen-type(phone-landscape) {
+            padding: 5%;
+        }
+        padding: 7%;
+        transition: all 0.4s ease-in-out;
+        position: absolute;
+        right: 0;
+        background-color: rgba($color: var(--text-color), $alpha: 0.1);
+        &:hover {
+            background-color: rgba($color: var(--text-color), $alpha: 0.5);
+        }
+    }
+    .search-bar {
+        max-width: 100%;
+        width: 0;
+        transition: all 0.4s ease-in-out;
+        opacity: 0;
+    }
+    .search {
+        background-color: rgba($color: var(--text-color), $alpha: 0.1);
+        color: var(--text-color);
+        border: none;
+        outline: none;
+        height: 5vh;
+        width: 0;
+        border-radius: 30px;
+        padding: 0 1rem;
+    }
+    .expand {
+        width: 100%;
+        opacity: 1;
+    }
+    .border-fix {
+        background: transparent;
+        &:hover {
+            background: transparent;
+        }
+    }
+}
+main {
+    height: fit-content;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .movie {
+        @include screen-type(pc) {
+            width: 21vw;
+        }
+        @include screen-type(phone-landscape) {
+        }
+        margin: 1rem;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        box-shadow: 0px 4px 10px 8px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        img {
+            width: 100%;
+        }
+        .movie-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem 1rem;
+            letter-spacing: 0.5px;
+            @include screen-type(pc) {
+                width: 21vw;
+            }
+            @include screen-type(phone-landscape) {
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            span {
+                background-color: var(--primary-color);
+                padding: 0.25rem 0.5rem;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+            span.green {
+                color: lightgreen;
+            }
+            span.orange {
+                color: orange;
+            }
+            span.red {
+                color: red;
+            }
+        }
+        .overview {
+            background-color: var(--text-color);
+            color: black;
+            padding: 2rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 100%;
+            transform: translateY(101%);
+            transition: 0.4s all ease-in-out;
+            .container {
+                @include flex-assign(row, space-between, center);
+                .toggle-overview {
+                    color: black;
+                }
+            }
+        }
+        .show {
+            transform: translateY(0);
+        }
+        &:hover {
+            .overview {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+.toggle-overview {
+    padding: 0.5rem;
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    margin: 0 0.3rem;
+    cursor: pointer;
+    @include screen-type(pc) {
+        display: none;
+    }
+}
+.move-up {
+    position: fixed;
+    min-height: 64px;
+    min-width: 64px;
+    overflow: hidden;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    bottom: 2%;
+    @include screen-type(pc){
+    bottom: 5%;
+
+    }
+    left: 1%;
+    @include flex-assign(column, center, center);
+    transition: all 0.5s ease-in-out;
+    animation: up-up 1s alternate infinite;
+}
+
+@keyframes up-up {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}

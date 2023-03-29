@@ -1,0 +1,38 @@
+@mixin screen-type($type) {
+    @if $type == phone-landscape {
+        @media (orientation: landscape) and (max-height: 40rem) {
+            @content;
+        }
+    } @else if $type == pc {
+        @media (min-width: 60rem) {
+            @content;
+        }
+    } @else if $type == tablet-landscape {
+        @media (min-width: 40rem) and (orientation: landscape) and (min-height:40rem){
+            @content;
+        }
+    } @else if $type == tablet-portrait {
+        @media (min-width: 40rem) and (orientation: portrait) {
+            @content;
+        }
+    }
+}
+@mixin flex-assign($direction, $justify-content, $align-item) {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    align-items: $align-item;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+}
+@mixin grid-assign($column-count, $row-count) {
+    display: grid;
+    grid-template-columns: $column-count;
+    grid-template-rows: $row-count;
+}
+@mixin background-url($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
